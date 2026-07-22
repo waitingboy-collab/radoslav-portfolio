@@ -66,7 +66,6 @@ max-width:1160px;
 margin:0 auto;
 padding:0 28px;
 }
-/* ---------- NAV ---------- */
 header.site{
 position:sticky;
 top:0;
@@ -141,7 +140,6 @@ display:none;
 nav.links.open{display:flex;}
 .burger{display:block;}
 }
-/* ---------- HERO ---------- */
 .hero{
 padding:96px 0 80px;
 position:relative;
@@ -213,7 +211,6 @@ color:var(--brass-light);
 font-size:0.82rem;
 color:var(--muted);
 }
-/* ---------- PHONE MOCKUP (signature element) ---------- */
 .phone-stage{
 position:relative;
 display:flex;
@@ -355,7 +352,6 @@ font-size:0.82rem;
 color:var(--teal);
 white-space:nowrap;
 }
-/* ---------- SECTION SHELL ---------- */
 section{padding:96px 0;}
 .section-head{
 max-width:640px;
@@ -370,7 +366,6 @@ color:var(--muted);
 margin-top:14px;
 font-size:1.02rem;
 }
-/* ---------- SERVICES ---------- */
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
@@ -427,7 +422,42 @@ section#uslugi .feat-list[style*="grid-template-columns:1fr 1fr"]{
 grid-template-columns:1fr !important;
 }
 }
-/* ---------- PROCESS ---------- */
+.modules-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+gap:20px;
+}
+.module-card{
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:12px;
+padding:24px;
+transition:border-color 0.25s ease, transform 0.25s ease;
+}
+.module-card:hover{border-color:var(--brass); transform:translateY(-2px);}
+.module-card .m-top{
+display:flex;
+justify-content:space-between;
+align-items:baseline;
+gap:10px;
+margin-bottom:10px;
+}
+.module-card h4{
+font-family:'Fraunces', serif;
+font-size:1.12rem;
+font-weight:600;
+}
+.module-card .m-price{
+font-family:'JetBrains Mono', monospace;
+color:var(--brass-light);
+font-size:0.92rem;
+white-space:nowrap;
+}
+.module-card p{
+color:var(--muted);
+font-size:0.86rem;
+margin:0;
+}
 .process{
 background:var(--bg-alt);
 border-top:1px solid var(--line);
@@ -481,7 +511,6 @@ font-size:0.88rem;
 .steps{grid-template-columns:1fr; gap:36px;}
 .step:not(:last-child)::after{display:none;}
 }
-/* ---------- DEMO MENU ---------- */
 .demo-shell{
 background:var(--surface);
 border:1px solid var(--line);
@@ -553,7 +582,6 @@ font-size:0.9rem;
 .demo-grid{grid-template-columns:1fr;}
 .demo-inner{padding:22px;}
 }
-/* ---------- CONTACT / RECEIPT ---------- */
 .contact{
 padding-top:0;
 }
@@ -630,7 +658,6 @@ padding:40px 0 60px;
 color:var(--muted);
 font-size:0.82rem;
 }
-/* reveal on scroll */
 .reveal{
 opacity:0;
 transform:translateY(18px);
@@ -728,13 +755,13 @@ outline-offset:3px;
 <div class="wrap">
 <div class="section-head reveal">
 <div class="eyebrow">Услуги</div>
-<h2>Три пакета. Един поглед към дигиталното бъдеще на заведението.</h2>
-<p>Работя директно със собственици на барове и ресторанти — без агенции по средата, с ясна комуникация и срокове. На консултация ти показвам и админ панела на живо, за да видиш как ще управляваш менюто сам/а.</p>
+<h2>Два основни пакета, плюс модули за надграждане.</h2>
+<p>Работя директно със собственици на барове и ресторанти — без агенции по средата, с ясна комуникация и срокове. На консултация ти показвам и админ панела на живо, за да видиш как ще управляваш менюто сам/а. Взимаш само модулите, от които заведението ти реално се нуждае.</p>
 </div>
 <div class="services">
 <div class="service-card reveal">
 <div class="tag">Основен пакет</div>
-<h3>Дигитално QR меню <span style="color:var(--brass-light); font-family:'JetBrains Mono', monospace; font-size:1.1rem;">· 100 €</span></h3>
+<h3>Дигитално QR меню <span style="color:var(--brass-light); font-family:'JetBrains Mono', monospace; font-size:1.1rem;">· 150 €</span></h3>
 <p>Гостите сканират код на масата и виждат актуалното меню на телефона си — без чакане, без изхабена хартия.</p>
 <ul class="feat-list">
 <li>Дигитално меню с категории, търсачка и снимки на артикулите</li>
@@ -748,37 +775,48 @@ outline-offset:3px;
 </div>
 <div class="service-card reveal">
 <div class="tag">Автоматизиран пакет</div>
-<h3>Меню с поръчки <span style="color:var(--brass-light); font-family:'JetBrains Mono', monospace; font-size:1.1rem;">· 200 €</span></h3>
+<h3>Меню с поръчки <span style="color:var(--brass-light); font-family:'JetBrains Mono', monospace; font-size:1.1rem;">· 300 €</span></h3>
 <p>Всичко от Основния пакет, плюс пълна автоматизация на поръчките — от масата директно към бара.</p>
 <ul class="feat-list">
 <li>Всичко включено в Основния пакет</li>
 <li>Клиентите избират артикули директно от телефона си</li>
 <li>Поръчката се изпраща с номер на маса в реално време</li>
-<li>Отделен екран за бара/персонала с моментално известяване</li>
+<li>Отделен екран за бара/персонала с моментално известяване (звук + визуално)</li>
+<li>Статистика на продажбите по период</li>
 <li>По-бързо обслужване и по-малко грешки в поръчките</li>
-<li>Основа за бъдеща връзка с касова/POS система</li>
 </ul>
 </div>
-<div class="service-card reveal">
-<div class="tag">Премиум пакет</div>
-<h3>Цялостно дигитално решение <span style="color:var(--brass-light); font-family:'JetBrains Mono', monospace; font-size:1.1rem;">· 400 €</span></h3>
-<p>Всичко от предходните пакети, плюс пълен анализ и персонализация според конкретното заведение.</p>
-<ul class="feat-list">
-<li>Всичко включено в Автоматизирания пакет</li>
-<li>Анализ на потока от клиенти в заведението</li>
-<li>Съгласуване със собственика на всеки детайл преди старт</li>
-<li>Конфигуриране на изгледа според конкретното заведение</li>
-<li>Пълен анализ на действията в системата</li>
-<li>Всички налични функционалности</li>
-</ul>
-<p style="margin-top:18px; margin-bottom:0; font-size:0.85rem; color:var(--muted); font-style:italic;">Точният обхват се обсъжда и съгласува на място, според нуждите на заведението.</p>
+</div>
+
+<div class="reveal" style="margin-top:56px;">
+<div class="eyebrow" style="margin-bottom:12px;">Модули за надграждане</div>
+<h3 style="font-size:1.5rem; margin-bottom:10px;">Добавяш само това, от което заведението наистина се нуждае.</h3>
+<p style="color:var(--muted); margin-bottom:28px; max-width:60ch;">Всеки модул се вгражда в Автоматизирания пакет по избор, на фиксирана добавъчна цена. Комбинират се свободно — от един модул до всички.</p>
+<div class="modules-grid">
+<div class="module-card reveal">
+<div class="m-top"><h4>Склад и наличности</h4><span class="m-price">+ 80 €</span></div>
+<p>Доставчици, зареждания, автоматично изваждане при продажба, реална себестойност и марж на всеки артикул.</p>
+</div>
+<div class="module-card reveal">
+<div class="m-top"><h4>Смени и каса</h4><span class="m-price">+ 50 €</span></div>
+<p>График на персонала и равнение на касата — отваряне/затваряне на смяна с автоматично изчислена разлика.</p>
+</div>
+<div class="module-card reveal">
+<div class="m-top"><h4>Резервации</h4><span class="m-price">+ 50 €</span></div>
+<p>Гостите изпращат заявка за маса директно от менюто; персоналът потвърждава или отказва от админ панела.</p>
+</div>
+<div class="module-card reveal">
+<div class="m-top"><h4>Автоматичен превод</h4><span class="m-price">+ 50 €</span></div>
+<p>Менюто се превежда автоматично на до 8 езика (DeepL) — идеално за заведения с чуждестранни гости.</p>
 </div>
 </div>
+</div>
+
 <div class="reveal" style="margin-top:32px; padding:24px 28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface);">
 <div class="eyebrow" style="margin-bottom:12px;">Условия на плащане</div>
 <ul class="feat-list" style="display:grid; grid-template-columns:1fr 1fr; gap:10px 24px;">
 <li>Еднократно плащане — без месечен абонамент за самото приложение</li>
-<li>Хостингът (Cloudflare Pages + Supabase) е безплатен на избрания план, на твое собствено име</li>
+<li>Хостингът (Vercel + Supabase) е безплатен на избрания план, на твое собствено име</li>
 <li>При желание може да се премине и на платен хостинг план с повече ресурси</li>
 <li>Опционална месечна поддръжка при желание — по договаряне</li>
 </ul>
@@ -844,7 +882,7 @@ outline-offset:3px;
 <a href="https://digital-menu-nu-two.vercel.app/" target="_blank" rel="noopener" style="color:var(--teal); font-weight:600; text-decoration:underline;">Отвори живото демо →</a>
 </p>
 <p class="reveal" style="text-align:center; margin-top:10px; color:var(--muted); font-size:0.92rem;">
-Или пробвай варианта с директни поръчки от масата:
+Или пробвай пълната версия с поръчки, склад, смени и превод:
 <a href="https://digital-menu-orders.vercel.app/" target="_blank" rel="noopener" style="color:var(--teal); font-weight:600; text-decoration:underline;">Отвори демо с поръчки →</a>
 </p>
 </div>
@@ -878,7 +916,6 @@ outline-offset:3px;
 </footer>
 
 <script>
-// Build corner-marker QR-like pattern for hero scan animation
 (function(){
 var grid = document.getElementById('qrHero');
 var size = 10;
@@ -898,7 +935,6 @@ if(!v) d.className = 'c';
 grid.appendChild(d);
 });
 });
-// small decorative dot grid near hero
 var dots = document.querySelector('.qr-dots');
 for(var i=0;i<49;i++){
 var d = document.createElement('div');
@@ -907,7 +943,6 @@ dots.appendChild(d);
 }
 })();
 
-// Demo menu data + tab switching
 var demoData = {
 drinks:[
 {name:'Аперол Шприц', desc:'Аперол, просеко, содена вода', price:'4.90 €'},
@@ -955,7 +990,6 @@ renderDemo(e.target.dataset.cat);
 
 renderDemo('drinks');
 
-// scroll reveal
 var reveals = document.querySelectorAll('.reveal');
 if('IntersectionObserver' in window){
 var io = new IntersectionObserver(function(entries){
