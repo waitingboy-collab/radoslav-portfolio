@@ -675,6 +675,16 @@ a:focus-visible, button:focus-visible{
 outline:2px solid var(--teal);
 outline-offset:3px;
 }
+.project-link{
+display:inline-flex;
+align-items:center;
+gap:6px;
+color:var(--teal);
+font-weight:600;
+text-decoration:underline;
+text-underline-offset:3px;
+}
+.project-link:hover{color:var(--teal-dark);}
 </style>
 </head>
 <body>
@@ -686,12 +696,13 @@ outline-offset:3px;
 <a href="#uslugi">Услуги</a>
 <a href="#proces">Как работи</a>
 <a href="#demo">Демо меню</a>
+<a href="#proekti">Проекти</a>
 <a href="#kontakti">Контакти</a>
 </nav>
 <a href="#kontakti" class="nav-cta">Свържи се →</a>
 </div>
 </header>
-
+ 
 <section class="hero">
 <div class="wrap">
 <div>
@@ -750,7 +761,7 @@ outline-offset:3px;
 </div>
 </div>
 </section>
-
+ 
 <section id="uslugi">
 <div class="wrap">
 <div class="section-head reveal">
@@ -787,7 +798,7 @@ outline-offset:3px;
 </ul>
 </div>
 </div>
-
+ 
 <div class="reveal" style="margin-top:56px;">
 <div class="eyebrow" style="margin-bottom:12px;">Модули за надграждане</div>
 <h3 style="font-size:1.5rem; margin-bottom:10px;">Добавяш само това, от което заведението наистина се нуждае.</h3>
@@ -811,7 +822,7 @@ outline-offset:3px;
 </div>
 </div>
 </div>
-
+ 
 <div class="reveal" style="margin-top:32px; padding:24px 28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface);">
 <div class="eyebrow" style="margin-bottom:12px;">Условия на плащане</div>
 <ul class="feat-list" style="display:grid; grid-template-columns:1fr 1fr; gap:10px 24px;">
@@ -824,7 +835,7 @@ outline-offset:3px;
 </div>
 </div>
 </section>
-
+ 
 <section class="process" id="proces">
 <div class="wrap">
 <div class="section-head reveal">
@@ -855,7 +866,7 @@ outline-offset:3px;
 </div>
 </div>
 </section>
-
+ 
 <section id="demo">
 <div class="wrap">
 <div class="section-head reveal">
@@ -887,7 +898,33 @@ outline-offset:3px;
 </p>
 </div>
 </section>
-
+ 
+<section id="proekti">
+<div class="wrap">
+<div class="section-head reveal">
+<div class="eyebrow">Проекти</div>
+<h2>Проекти завършени.</h2>
+<p>Извън дигиталните менюта, разработвам и цялостни системи по поръчка — сайт и native Android приложение, свързани в реално време с обща база данни.</p>
+</div>
+<div class="services">
+<div class="service-card reveal">
+<div class="tag">Завършен проект</div>
+<h3>SEV&amp;BRO <span style="color:var(--brass-light); font-family:'JetBrains Mono', monospace; font-size:1.1rem;">· Автомивка</span></h3>
+<p>Пълна дигитална система за резервации за автомивка в Крумовград — уебсайт, native Android приложение и админ панел, свързани в реално време.</p>
+<ul class="feat-list">
+<li>Онлайн заявка за час, с проверка че клиентът реално е в града</li>
+<li>Native Android приложение с мгновени известия при нова резервация (Realtime, без Firebase)</li>
+<li>Админ панел — потвърждаване, пренасрочване, ръчно добавяне, управление на работни дни</li>
+<li>Автоматична защита срещу повторни неявявания на клиенти</li>
+<li>Напомняния за собственика преди наближаващ час — ден преди и час преди</li>
+<li>Дистанционно обновяване на приложението, без нужда от Google Play</li>
+</ul>
+<a href="https://sevbrocarwash.vercel.app/" target="_blank" rel="noopener" class="project-link" style="margin-top:20px;">Виж сайта →</a>
+</div>
+</div>
+</div>
+</section>
+ 
 <section class="contact" id="kontakti">
 <div class="wrap">
 <div class="section-head reveal" style="margin:0 auto 44px; text-align:center;">
@@ -910,11 +947,11 @@ outline-offset:3px;
 </div>
 </div>
 </section>
-
+ 
 <footer>
 © 2026 Радослав Чакъров · Дигитални решения за барове и ресторанти
 </footer>
-
+ 
 <script>
 (function(){
 var grid = document.getElementById('qrHero');
@@ -942,7 +979,7 @@ if(Math.random() > 0.55) d.className = 'off';
 dots.appendChild(d);
 }
 })();
-
+ 
 var demoData = {
 drinks:[
 {name:'Аперол Шприц', desc:'Аперол, просеко, содена вода', price:'4.90 €'},
@@ -969,7 +1006,7 @@ desserts:[
 {name:'Крем брюле', desc:'Ванилия от Мадагаскар', price:'3.90 €'}
 ]
 };
-
+ 
 function renderDemo(cat){
 var grid = document.getElementById('demoGrid');
 grid.innerHTML = '';
@@ -980,16 +1017,16 @@ el.innerHTML = '<div><div class="di-name">'+item.name+'</div><div class="di-desc
 grid.appendChild(el);
 });
 }
-
+ 
 document.getElementById('demoTabs').addEventListener('click', function(e){
 if(e.target.tagName !== 'BUTTON') return;
 document.querySelectorAll('#demoTabs button').forEach(function(b){b.classList.remove('active');});
 e.target.classList.add('active');
 renderDemo(e.target.dataset.cat);
 });
-
+ 
 renderDemo('drinks');
-
+ 
 var reveals = document.querySelectorAll('.reveal');
 if('IntersectionObserver' in window){
 var io = new IntersectionObserver(function(entries){
@@ -1004,3 +1041,4 @@ reveals.forEach(function(el){ el.classList.add('in'); });
 </script>
 </body>
 </html>
+ 
