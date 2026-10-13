@@ -17,23 +17,25 @@
 </head>
 <body>
 
-<a class="skip-link" href="#top">Към съдържанието</a>
+<a class="skip-link" href="#top" data-i18n="t0">Към съдържанието</a>
 
 <!-- ===== Header ===== -->
 <header class="site-header" id="header">
   <div class="wrap header-inner">
     <a href="#top" class="brand">
-      <span class="brand-mark" aria-hidden="true">Р</span>
-      <span class="brand-name">Радослав Чакъров</span>
+      <span class="brand-mark" aria-hidden="true" data-i18n="mark">Р</span>
+      <span class="brand-name" data-i18n="t1">Радослав Чакъров</span>
     </a>
 
     <nav class="nav-desktop" aria-label="Основна навигация">
-      <a href="#uslugi">Услуги</a>
-      <a href="#proces">Как работи</a>
-      <a href="#demo">Демо</a>
-      <a href="#proekti">Проекти</a>
-      <a href="#kontakti" class="nav-cta">Свържи се</a>
+      <a href="#uslugi" data-i18n="t2">Услуги</a>
+      <a href="#proces" data-i18n="t3">Как работи</a>
+      <a href="#demo" data-i18n="t4">Демо</a>
+      <a href="#proekti" data-i18n="t5">Проекти</a>
+      <a href="#kontakti" class="nav-cta" data-i18n="t6">Свържи се</a>
     </nav>
+
+    <button type="button" class="lang-toggle" id="langToggle" lang="en" aria-label="Switch to English">EN</button>
 
     <button type="button" class="burger" id="burgerBtn" aria-label="Отвори меню" aria-expanded="false" aria-controls="mobileNav">
       <span></span><span></span><span></span>
@@ -41,11 +43,11 @@
   </div>
 
   <nav class="nav-mobile" id="mobileNav" aria-label="Мобилна навигация">
-    <a href="#uslugi">Услуги</a>
-    <a href="#proces">Как работи</a>
-    <a href="#demo">Демо</a>
-    <a href="#proekti">Проекти</a>
-    <a href="#kontakti">Свържи се</a>
+    <a href="#uslugi" data-i18n="t2">Услуги</a>
+    <a href="#proces" data-i18n="t3">Как работи</a>
+    <a href="#demo" data-i18n="t4">Демо</a>
+    <a href="#proekti" data-i18n="t5">Проекти</a>
+    <a href="#kontakti" data-i18n="t6">Свържи се</a>
   </nav>
 </header>
 
@@ -57,24 +59,24 @@
     <div class="blob blob-2" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Фрийланс разработка · Барове &amp; ресторанти</p>
-        <h1 class="hero-title">
+        <p class="eyebrow" data-i18n="t7">Фрийланс разработка · Барове &amp; ресторанти</p>
+        <h1 class="hero-title" data-i18n="t8">
           Менюто на масата ти,
           <span class="accent-text">вече на телефона им.</span>
         </h1>
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n="t9">
           Изграждам дигитални QR менюта и уеб приложения за барове и ресторанти —
           бързи за гостите, лесни за управление от теб, без нов тираж менюта при всяка промяна на цена.
         </p>
         <div class="hero-actions">
-          <a href="#demo" class="btn btn-primary">Виж демо меню</a>
-          <a href="#kontakti" class="btn btn-secondary">Заяви консултация</a>
+          <a href="#demo" class="btn btn-primary" data-i18n="t10">Виж демо меню</a>
+          <a href="#kontakti" class="btn btn-secondary" data-i18n="t11">Заяви консултация</a>
         </div>
 
         <div class="hero-stats">
-          <div class="hero-stat"><strong>0&nbsp;€</strong><span>нов печат при промяна</span></div>
-          <div class="hero-stat"><strong>&lt;3&nbsp;сек</strong><span>зареждане на менюто</span></div>
-          <div class="hero-stat"><strong>24&nbsp;ч</strong><span>отговор на запитване</span></div>
+          <div class="hero-stat"><strong>0&nbsp;€</strong><span data-i18n="t12">нов печат при промяна</span></div>
+          <div class="hero-stat"><strong data-i18n="t13">&lt;3&nbsp;сек</strong><span data-i18n="t14">зареждане на менюто</span></div>
+          <div class="hero-stat"><strong data-i18n="t15">24&nbsp;ч</strong><span data-i18n="t16">отговор на запитване</span></div>
         </div>
       </div>
 
@@ -83,24 +85,24 @@
           <div class="phone-notch"></div>
           <div class="phone-screen">
             <div class="phone-head">
-              <div class="phone-title">При Радо</div>
-              <div class="phone-sub">Маса №4 · дигитално меню</div>
+              <div class="phone-title" data-i18n="t17">При Радо</div>
+              <div class="phone-sub" data-i18n="t18">Маса №4 · дигитално меню</div>
             </div>
             <div class="phone-chips">
-              <span class="chip chip-active">Напитки</span>
-              <span class="chip">Основни</span>
-              <span class="chip">Десерти</span>
+              <span class="chip chip-active" data-i18n="t19">Напитки</span>
+              <span class="chip" data-i18n="t20">Основни</span>
+              <span class="chip" data-i18n="t21">Десерти</span>
             </div>
             <ul class="phone-items">
-              <li><div><b>Аперол Шприц</b><small>Аперол, просеко, содена вода</small></div><em>4.90&nbsp;€</em></li>
-              <li><div><b>Крафт бира IPA</b><small>Локална пивоварна, 0.4л</small></div><em>3.20&nbsp;€</em></li>
-              <li><div><b>Мохито</b><small>Бял ром, мента, лайм</small></div><em>4.50&nbsp;€</em></li>
-              <li><div><b>Домашна лимонада</b><small>Без алкохол · сезонна</small></div><em>2.50&nbsp;€</em></li>
-              <li><div><b>Еспресо</b><small>Двойно, италиански бленд</small></div><em>1.60&nbsp;€</em></li>
+              <li><div><b data-i18n="t23">Аперол Шприц</b><small data-i18n="t24">Аперол, просеко, содена вода</small></div><em>4.90&nbsp;€</em></li>
+              <li><div><b data-i18n="t25">Крафт бира IPA</b><small data-i18n="t26">Локална пивоварна, 0.4л</small></div><em>3.20&nbsp;€</em></li>
+              <li><div><b data-i18n="t27">Мохито</b><small data-i18n="t28">Бял ром, мента, лайм</small></div><em>4.50&nbsp;€</em></li>
+              <li><div><b data-i18n="t29">Домашна лимонада</b><small data-i18n="t30">Без алкохол · сезонна</small></div><em>2.50&nbsp;€</em></li>
+              <li><div><b data-i18n="t31">Еспресо</b><small data-i18n="t32">Двойно, италиански бленд</small></div><em>1.60&nbsp;€</em></li>
             </ul>
             <div class="phone-qr">
               <div class="qr-box"><span class="qr-scan"></span></div>
-              <p>Сканирай QR кода на масата — менюто е винаги актуално.</p>
+              <p data-i18n="t33">Сканирай QR кода на масата — менюто е винаги актуално.</p>
             </div>
           </div>
         </div>
@@ -113,19 +115,19 @@
     <div class="wrap stats-grid">
       <div class="stat-orb stat-orb-1 reveal">
         <strong>0&nbsp;€</strong>
-        <span>за нов печат при промяна</span>
+        <span data-i18n="t34">за нов печат при промяна</span>
       </div>
       <div class="stat-orb stat-orb-2 reveal" style="--delay:60ms">
-        <strong>&lt;3&nbsp;сек</strong>
-        <span>зареждане на менюто</span>
+        <strong data-i18n="t13">&lt;3&nbsp;сек</strong>
+        <span data-i18n="t14">зареждане на менюто</span>
       </div>
       <div class="stat-orb stat-orb-3 reveal" style="--delay:120ms">
         <strong>1&nbsp;QR</strong>
-        <span>вместо купчина хартия</span>
+        <span data-i18n="t35">вместо купчина хартия</span>
       </div>
       <div class="stat-orb stat-orb-4 reveal" style="--delay:180ms">
-        <strong>до 24&nbsp;ч</strong>
-        <span>отговор на запитване</span>
+        <strong data-i18n="t36">до 24&nbsp;ч</strong>
+        <span data-i18n="t16">отговор на запитване</span>
       </div>
     </div>
   </section>
@@ -133,9 +135,9 @@
   <!-- ===== Services ===== -->
   <section id="uslugi" class="section">
     <div class="wrap">
-      <p class="eyebrow reveal">Услуги</p>
-      <h2 class="section-title reveal">Пакети, които се надграждат.</h2>
-      <p class="section-lead reveal">
+      <p class="eyebrow reveal" data-i18n="t2">Услуги</p>
+      <h2 class="section-title reveal" data-i18n="t37">Пакети, които се надграждат.</h2>
+      <p class="section-lead reveal" data-i18n="t38">
         Работя директно със собственици на барове и ресторанти — без агенции по средата, с ясна комуникация
         и срокове. На консултация ти показвам админ панела на живо, за да видиш как ще управляваш менюто сам/а.
       </p>
@@ -143,117 +145,117 @@
       <div class="cards-grid">
 
         <article class="pkg-card reveal">
-          <span class="pkg-tag">Стартов пакет</span>
-          <h3>Опростен информационен сайт</h3>
+          <span class="pkg-tag" data-i18n="t39">Стартов пакет</span>
+          <h3 data-i18n="t40">Опростен информационен сайт</h3>
           <p class="pkg-price">50&nbsp;€</p>
-          <p class="pkg-body">Едностранична онлайн визитка — бърза и достатъчна за бизнеси, които засега искат само да бъдат намерени онлайн.</p>
+          <p class="pkg-body" data-i18n="t41">Едностранична онлайн визитка — бърза и достатъчна за бизнеси, които засега искат само да бъдат намерени онлайн.</p>
           <ul class="pkg-list">
-            <li>Заглавна страница с име, кратко описание и снимки</li>
-            <li>Данни за контакт и работно време на видно място</li>
-            <li>Адаптивен дизайн — телефон, таблет и компютър</li>
-            <li>Хостван на собствен адрес, готов за споделяне</li>
-            <li>Основа за надграждане към меню или поръчки</li>
+            <li data-i18n="t42">Заглавна страница с име, кратко описание и снимки</li>
+            <li data-i18n="t43">Данни за контакт и работно време на видно място</li>
+            <li data-i18n="t44">Адаптивен дизайн — телефон, таблет и компютър</li>
+            <li data-i18n="t45">Хостван на собствен адрес, готов за споделяне</li>
+            <li data-i18n="t46">Основа за надграждане към меню или поръчки</li>
           </ul>
         </article>
 
         <article class="pkg-card pkg-card-featured reveal" style="--delay:60ms">
-          <span class="pkg-tag pkg-tag-solid">Основен пакет</span>
-          <h3>Дигитално QR меню</h3>
+          <span class="pkg-tag pkg-tag-solid" data-i18n="t47">Основен пакет</span>
+          <h3 data-i18n="t48">Дигитално QR меню</h3>
           <p class="pkg-price">150&nbsp;€</p>
-          <p class="pkg-body">Гостите сканират код на масата и виждат актуалното меню на телефона си — без чакане, без изхабена хартия.</p>
+          <p class="pkg-body" data-i18n="t49">Гостите сканират код на масата и виждат актуалното меню на телефона си — без чакане, без изхабена хартия.</p>
           <ul class="pkg-list">
-            <li>Меню с категории, търсачка и снимки на артикулите</li>
-            <li>Клик върху артикул за детайли и пълно описание</li>
-            <li>Админ панел — добавяне, редакция и триене по всяко време</li>
-            <li>Управление на наличност — маркиране „изчерпано“</li>
-            <li>Смяна на името и фоновата снимка на менюто</li>
-            <li>Пълна собственост — хостинг и база данни на твое име</li>
-            <li>Инструкции за настройка стъпка по стъпка</li>
+            <li data-i18n="t50">Меню с категории, търсачка и снимки на артикулите</li>
+            <li data-i18n="t51">Клик върху артикул за детайли и пълно описание</li>
+            <li data-i18n="t52">Админ панел — добавяне, редакция и триене по всяко време</li>
+            <li data-i18n="t53">Управление на наличност — маркиране „изчерпано“</li>
+            <li data-i18n="t54">Смяна на името и фоновата снимка на менюто</li>
+            <li data-i18n="t55">Пълна собственост — хостинг и база данни на твое име</li>
+            <li data-i18n="t56">Инструкции за настройка стъпка по стъпка</li>
           </ul>
         </article>
 
         <article class="pkg-card reveal" style="--delay:120ms">
-          <span class="pkg-tag">Автоматизиран пакет</span>
-          <h3>Меню с поръчки</h3>
+          <span class="pkg-tag" data-i18n="t57">Автоматизиран пакет</span>
+          <h3 data-i18n="t58">Меню с поръчки</h3>
           <p class="pkg-price">300&nbsp;€</p>
-          <p class="pkg-body">Всичко от Основния пакет, плюс пълна автоматизация на поръчките — от масата директно към бара.</p>
+          <p class="pkg-body" data-i18n="t59">Всичко от Основния пакет, плюс пълна автоматизация на поръчките — от масата директно към бара.</p>
           <ul class="pkg-list">
-            <li>Всичко включено в Основния пакет</li>
-            <li>Клиентите избират артикули директно от телефона си</li>
-            <li>Поръчката се изпраща с номер на маса в реално време</li>
-            <li>Екран за бара с моментално известяване (звук + визуално)</li>
-            <li>Статистика на продажбите по период</li>
-            <li>По-бързо обслужване и по-малко грешки</li>
+            <li data-i18n="t60">Всичко включено в Основния пакет</li>
+            <li data-i18n="t61">Клиентите избират артикули директно от телефона си</li>
+            <li data-i18n="t62">Поръчката се изпраща с номер на маса в реално време</li>
+            <li data-i18n="t63">Екран за бара с моментално известяване (звук + визуално)</li>
+            <li data-i18n="t64">Статистика на продажбите по период</li>
+            <li data-i18n="t65">По-бързо обслужване и по-малко грешки</li>
           </ul>
         </article>
 
         <article class="pkg-card reveal" style="--delay:180ms">
-          <span class="pkg-tag">По поръчка</span>
-          <h3>Сайт за хотел с резервации</h3>
+          <span class="pkg-tag" data-i18n="t66">По поръчка</span>
+          <h3 data-i18n="t67">Сайт за хотел с резервации</h3>
           <p class="pkg-price">250&nbsp;€</p>
-          <p class="pkg-body">Уебсайт за хотел или къща за гости с вградена система за резервации — гостите резервират директно при теб, без комисионна.</p>
+          <p class="pkg-body" data-i18n="t68">Уебсайт за хотел или къща за гости с вградена система за резервации — гостите резервират директно при теб, без комисионна.</p>
           <ul class="pkg-list">
-            <li>Представяне на стаите с описание, снимки и цени</li>
-            <li>Календар за наличност и директна онлайн заявка</li>
-            <li>Автоматично потвърждение и известие при резервация</li>
-            <li>Админ панел за стаи, цени и заети дати</li>
-            <li>Без месечна комисионна върху резервациите</li>
-            <li>Пълна собственост — хостинг и база на твое име</li>
+            <li data-i18n="t69">Представяне на стаите с описание, снимки и цени</li>
+            <li data-i18n="t70">Календар за наличност и директна онлайн заявка</li>
+            <li data-i18n="t71">Автоматично потвърждение и известие при резервация</li>
+            <li data-i18n="t72">Админ панел за стаи, цени и заети дати</li>
+            <li data-i18n="t73">Без месечна комисионна върху резервациите</li>
+            <li data-i18n="t74">Пълна собственост — хостинг и база на твое име</li>
           </ul>
         </article>
 
         <article class="pkg-card reveal" style="--delay:240ms">
-          <span class="pkg-tag">По поръчка</span>
-          <h3>Сайт + Android приложение</h3>
-          <p class="pkg-price">от 500&nbsp;€</p>
-          <p class="pkg-body">Цялостна система по поръчка — уебсайт и native Android приложение, свързани в реално време с обща база данни.</p>
+          <span class="pkg-tag" data-i18n="t66">По поръчка</span>
+          <h3 data-i18n="t75">Сайт + Android приложение</h3>
+          <p class="pkg-price" data-i18n="t76">от 500&nbsp;€</p>
+          <p class="pkg-body" data-i18n="t77">Цялостна система по поръчка — уебсайт и native Android приложение, свързани в реално време с обща база данни.</p>
           <ul class="pkg-list">
-            <li>Уебсайт с админ панел за пълно управление</li>
-            <li>Native Android приложение (не обвит сайт)</li>
-            <li>Мигновени известия, автоматизации и защити по избор</li>
-            <li>Пълна собственост — хостинг и база данни на твое име</li>
+            <li data-i18n="t78">Уебсайт с админ панел за пълно управление</li>
+            <li data-i18n="t79">Native Android приложение (не обвит сайт)</li>
+            <li data-i18n="t80">Мигновени известия, автоматизации и защити по избор</li>
+            <li data-i18n="t55">Пълна собственост — хостинг и база данни на твое име</li>
           </ul>
-          <p class="pkg-note">Посочената цена е начална — крайната сума зависи от сложността на изработката и се уточнява индивидуално преди старт.</p>
+          <p class="pkg-note" data-i18n="t81">Посочената цена е начална — крайната сума зависи от сложността на изработката и се уточнява индивидуално преди старт.</p>
         </article>
 
       </div>
 
       <!-- Modules -->
       <div class="modules-head reveal">
-        <p class="eyebrow">Модули за надграждане</p>
-        <h3 class="section-subtitle">Добавяш само това, от което заведението наистина се нуждае.</h3>
-        <p class="section-lead">Всеки модул се вгражда в Автоматизирания пакет на фиксирана добавъчна цена. Комбинират се свободно — от един модул до всички.</p>
+        <p class="eyebrow" data-i18n="t82">Модули за надграждане</p>
+        <h3 class="section-subtitle" data-i18n="t83">Добавяш само това, от което заведението наистина се нуждае.</h3>
+        <p class="section-lead" data-i18n="t84">Всеки модул се вгражда в Автоматизирания пакет на фиксирана добавъчна цена. Комбинират се свободно — от един модул до всички.</p>
       </div>
 
       <div class="modules-grid">
         <div class="module-card reveal">
-          <div class="module-head"><h4>Склад и наличности</h4><span>+&nbsp;80&nbsp;€</span></div>
-          <p>Доставчици, зареждания, автоматично изваждане при продажба, реална себестойност и марж на всеки артикул.</p>
+          <div class="module-head"><h4 data-i18n="t85">Склад и наличности</h4><span>+&nbsp;80&nbsp;€</span></div>
+          <p data-i18n="t86">Доставчици, зареждания, автоматично изваждане при продажба, реална себестойност и марж на всеки артикул.</p>
         </div>
         <div class="module-card reveal" style="--delay:60ms">
-          <div class="module-head"><h4>Смени и каса</h4><span>+&nbsp;50&nbsp;€</span></div>
-          <p>График на персонала и равнение на касата — отваряне/затваряне на смяна с автоматично изчислена разлика.</p>
+          <div class="module-head"><h4 data-i18n="t87">Смени и каса</h4><span>+&nbsp;50&nbsp;€</span></div>
+          <p data-i18n="t88">График на персонала и равнение на касата — отваряне/затваряне на смяна с автоматично изчислена разлика.</p>
         </div>
         <div class="module-card reveal" style="--delay:120ms">
-          <div class="module-head"><h4>Резервации</h4><span>+&nbsp;50&nbsp;€</span></div>
-          <p>Гостите изпращат заявка за маса директно от менюто; персоналът потвърждава или отказва от админ панела.</p>
+          <div class="module-head"><h4 data-i18n="t89">Резервации</h4><span>+&nbsp;50&nbsp;€</span></div>
+          <p data-i18n="t90">Гостите изпращат заявка за маса директно от менюто; персоналът потвърждава или отказва от админ панела.</p>
         </div>
         <div class="module-card reveal" style="--delay:180ms">
-          <div class="module-head"><h4>Автоматичен превод</h4><span>+&nbsp;50&nbsp;€</span></div>
-          <p>Менюто се превежда автоматично на до 8 езика (DeepL) — идеално за заведения с чуждестранни гости.</p>
+          <div class="module-head"><h4 data-i18n="t91">Автоматичен превод</h4><span>+&nbsp;50&nbsp;€</span></div>
+          <p data-i18n="t92">Менюто се превежда автоматично на до 8 езика (DeepL) — идеално за заведения с чуждестранни гости.</p>
         </div>
       </div>
 
       <!-- Payment terms -->
       <div class="terms-box reveal">
-        <p class="eyebrow">Условия на плащане</p>
+        <p class="eyebrow" data-i18n="t93">Условия на плащане</p>
         <ul class="terms-list">
-          <li>Еднократно плащане — без месечен абонамент за самото приложение</li>
-          <li>Хостингът (Vercel + Supabase) е безплатен на избрания план, на твое име</li>
-          <li>При желание може да се премине на платен хостинг план с повече ресурси</li>
-          <li>Опционална месечна поддръжка — по договаряне</li>
+          <li data-i18n="t94">Еднократно плащане — без месечен абонамент за самото приложение</li>
+          <li data-i18n="t95">Хостингът (Vercel + Supabase) е безплатен на избрания план, на твое име</li>
+          <li data-i18n="t96">При желание може да се премине на платен хостинг план с повече ресурси</li>
+          <li data-i18n="t97">Опционална месечна поддръжка — по договаряне</li>
         </ul>
-        <p class="fine-print">Всичко описано по-горе е информативно — конкретните условия се уточняват индивидуално преди старт.</p>
+        <p class="fine-print" data-i18n="t98">Всичко описано по-горе е информативно — конкретните условия се уточняват индивидуално преди старт.</p>
       </div>
     </div>
   </section>
@@ -261,36 +263,36 @@
   <!-- ===== Process ===== -->
   <section id="proces" class="section section-alt">
     <div class="wrap">
-      <p class="eyebrow reveal">Как работи</p>
-      <h2 class="section-title reveal">От разговор до QR код на масата.</h2>
+      <p class="eyebrow reveal" data-i18n="t3">Как работи</p>
+      <h2 class="section-title reveal" data-i18n="t99">От разговор до QR код на масата.</h2>
 
       <div class="steps-grid">
         <div class="step reveal">
           <div class="step-num">01</div>
           <div>
-            <h4>Разговор</h4>
-            <p>Обсъждаме менюто, бранда и това, което искаш гостите да усетят.</p>
+            <h4 data-i18n="t100">Разговор</h4>
+            <p data-i18n="t101">Обсъждаме менюто, бранда и това, което искаш гостите да усетят.</p>
           </div>
         </div>
         <div class="step reveal" style="--delay:60ms">
           <div class="step-num">02</div>
           <div>
-            <h4>Дизайн</h4>
-            <p>Оформям визия на менюто/приложението според стила на заведението.</p>
+            <h4 data-i18n="t102">Дизайн</h4>
+            <p data-i18n="t103">Оформям визия на менюто/приложението според стила на заведението.</p>
           </div>
         </div>
         <div class="step reveal" style="--delay:120ms">
           <div class="step-num">03</div>
           <div>
-            <h4>Разработка</h4>
-            <p>Изграждам дигиталното меню или приложението и го тествам с теб.</p>
+            <h4 data-i18n="t104">Разработка</h4>
+            <p data-i18n="t105">Изграждам дигиталното меню или приложението и го тествам с теб.</p>
           </div>
         </div>
         <div class="step reveal" style="--delay:180ms">
           <div class="step-num">04</div>
           <div>
-            <h4>Пускане на живо</h4>
-            <p>Поставяме QR кодовете на масите — готово е за гостите.</p>
+            <h4 data-i18n="t106">Пускане на живо</h4>
+            <p data-i18n="t107">Поставяме QR кодовете на масите — готово е за гостите.</p>
           </div>
         </div>
       </div>
@@ -300,18 +302,18 @@
   <!-- ===== Demo ===== -->
   <section id="demo" class="section">
     <div class="wrap">
-      <p class="eyebrow reveal">Демо</p>
-      <h2 class="section-title reveal">Пробвай меню, направено от мен.</h2>
-      <p class="section-lead reveal">Категориите се сменят точно както при истинско QR меню на маса.</p>
+      <p class="eyebrow reveal" data-i18n="t4">Демо</p>
+      <h2 class="section-title reveal" data-i18n="t108">Пробвай меню, направено от мен.</h2>
+      <p class="section-lead reveal" data-i18n="t109">Категориите се сменят точно както при истинско QR меню на маса.</p>
 
       <div class="demo-panel reveal">
-        <div class="demo-panel-head">При Радо — дигитално меню</div>
+        <div class="demo-panel-head" data-i18n="t110">При Радо — дигитално меню</div>
 
         <div class="demo-tabs" role="tablist" aria-label="Категории на менюто">
-          <button class="demo-tab is-active" role="tab" aria-selected="true" data-cat="drinks">Напитки</button>
-          <button class="demo-tab" role="tab" aria-selected="false" data-cat="starters">Предястия</button>
-          <button class="demo-tab" role="tab" aria-selected="false" data-cat="mains">Основни</button>
-          <button class="demo-tab" role="tab" aria-selected="false" data-cat="desserts">Десерти</button>
+          <button class="demo-tab is-active" role="tab" aria-selected="true" data-cat="drinks" data-i18n="t19">Напитки</button>
+          <button class="demo-tab" role="tab" aria-selected="false" data-cat="starters" data-i18n="t22">Предястия</button>
+          <button class="demo-tab" role="tab" aria-selected="false" data-cat="mains" data-i18n="t20">Основни</button>
+          <button class="demo-tab" role="tab" aria-selected="false" data-cat="desserts" data-i18n="t21">Десерти</button>
         </div>
 
         <div class="demo-items" id="demoItems" role="tabpanel"></div>
@@ -319,10 +321,10 @@
 
       <div class="demo-links">
         <a class="demo-link demo-link-accent" href="https://digital-menu-nu-two.vercel.app/" target="_blank" rel="noopener">
-          <span>Живо демо меню</span><span aria-hidden="true">→</span>
+          <span data-i18n="t111">Живо демо меню</span><span aria-hidden="true">→</span>
         </a>
         <a class="demo-link demo-link-sage" href="https://digital-menu-orders.vercel.app/" target="_blank" rel="noopener">
-          <span>Демо с поръчки</span><span aria-hidden="true">→</span>
+          <span data-i18n="t112">Демо с поръчки</span><span aria-hidden="true">→</span>
         </a>
       </div>
     </div>
@@ -331,77 +333,77 @@
   <!-- ===== Projects ===== -->
   <section id="proekti" class="section section-alt">
     <div class="wrap">
-      <p class="eyebrow reveal">Проекти</p>
-      <h2 class="section-title reveal">Завършени проекти.</h2>
-      <p class="section-lead reveal">
+      <p class="eyebrow reveal" data-i18n="t5">Проекти</p>
+      <h2 class="section-title reveal" data-i18n="t113">Завършени проекти.</h2>
+      <p class="section-lead reveal" data-i18n="t114">
         Извън дигиталните менюта разработвам и цялостни системи по поръчка — сайт и native Android приложение,
         свързани в реално време с обща база данни. А в свободното си време правя проекти за родния Крумовград и програми за Windows.
       </p>
 
       <div class="projects-grid">
         <article class="project-card reveal">
-          <span class="pkg-tag pkg-tag-sage">Завършен проект</span>
+          <span class="pkg-tag pkg-tag-sage" data-i18n="t115">Завършен проект</span>
           <h3>SEV&amp;BRO</h3>
-          <p class="project-kind">Автомивка · Крумовград</p>
-          <p class="pkg-body">Пълна дигитална система за резервации — уебсайт, native Android приложение и админ панел, свързани в реално време.</p>
+          <p class="project-kind" data-i18n="t116">Автомивка · Крумовград</p>
+          <p class="pkg-body" data-i18n="t117">Пълна дигитална система за резервации — уебсайт, native Android приложение и админ панел, свързани в реално време.</p>
           <ul class="pkg-list">
-            <li>Онлайн заявка за час, с проверка че клиентът е в града</li>
-            <li>Android приложение с мигновени известия (Realtime, без Firebase)</li>
-            <li>Админ панел — потвърждаване, пренасрочване, работни дни</li>
-            <li>Автоматична защита срещу повторни неявявания</li>
-            <li>Напомняния за собственика — ден преди и час преди</li>
-            <li>Дистанционно обновяване, без Google Play</li>
+            <li data-i18n="t118">Онлайн заявка за час, с проверка че клиентът е в града</li>
+            <li data-i18n="t119">Android приложение с мигновени известия (Realtime, без Firebase)</li>
+            <li data-i18n="t120">Админ панел — потвърждаване, пренасрочване, работни дни</li>
+            <li data-i18n="t121">Автоматична защита срещу повторни неявявания</li>
+            <li data-i18n="t122">Напомняния за собственика — ден преди и час преди</li>
+            <li data-i18n="t123">Дистанционно обновяване, без Google Play</li>
           </ul>
-          <a class="btn btn-secondary btn-block" href="https://sevbrocarwash.vercel.app/" target="_blank" rel="noopener">Виж сайта →</a>
+          <a class="btn btn-secondary btn-block" href="https://sevbrocarwash.vercel.app/" target="_blank" rel="noopener" data-i18n="t124">Виж сайта →</a>
         </article>
 
         <article class="project-card reveal" style="--delay:80ms">
-          <span class="pkg-tag pkg-tag-sage">Доброволчески проект</span>
+          <span class="pkg-tag pkg-tag-sage" data-i18n="t125">Доброволчески проект</span>
           <h3>Save Animals Plovdiv</h3>
-          <p class="project-kind">Платформа за сигнали</p>
-          <p class="pkg-body">Изградена изцяло безвъзмездно — свързва граждани, забелязали бездомно животно, с одобрени приюти и клиники в реално време.</p>
+          <p class="project-kind" data-i18n="t126">Платформа за сигнали</p>
+          <p class="pkg-body" data-i18n="t127">Изградена изцяло безвъзмездно — свързва граждани, забелязали бездомно животно, с одобрени приюти и клиники в реално време.</p>
           <ul class="pkg-list">
-            <li>Подаване на сигнал със снимка и локация, без регистрация</li>
-            <li>Карта и feed на активните сигнали в реално време</li>
-            <li>Регистрация на приюти и клиники с ръчно одобрение</li>
-            <li>Admin табло — поемане, освобождаване, решени случаи</li>
-            <li>Разделени роли за организации, админи и посетители</li>
+            <li data-i18n="t128">Подаване на сигнал със снимка и локация, без регистрация</li>
+            <li data-i18n="t129">Карта и feed на активните сигнали в реално време</li>
+            <li data-i18n="t130">Регистрация на приюти и клиники с ръчно одобрение</li>
+            <li data-i18n="t131">Admin табло — поемане, освобождаване, решени случаи</li>
+            <li data-i18n="t132">Разделени роли за организации, админи и посетители</li>
           </ul>
-          <a class="btn btn-secondary btn-block" href="https://saveanimalsplovdiv.vercel.app/" target="_blank" rel="noopener">Виж сайта →</a>
+          <a class="btn btn-secondary btn-block" href="https://saveanimalsplovdiv.vercel.app/" target="_blank" rel="noopener" data-i18n="t124">Виж сайта →</a>
         </article>
 
         <article class="project-card reveal" style="--delay:160ms">
-          <span class="pkg-tag pkg-tag-sage">Личен проект</span>
+          <span class="pkg-tag pkg-tag-sage" data-i18n="t133">Личен проект</span>
           <h3>Krumovgrad place to be</h3>
-          <p class="project-kind">Карта на забележителностите · Крумовград</p>
-          <p class="pkg-body">Некомерсиален сайт за интересните места в община Крумовград — природа, история, вода и храмове на интерактивна карта, с авторски дрон видеа.</p>
+          <p class="project-kind" data-i18n="t134">Карта на забележителностите · Крумовград</p>
+          <p class="pkg-body" data-i18n="t135">Некомерсиален сайт за интересните места в община Крумовград — природа, история, вода и храмове на интерактивна карта, с авторски дрон видеа.</p>
           <ul class="pkg-list">
-            <li>Интерактивна карта с филтри, търсене и навигация до всяко място</li>
-            <li>Гражданите предлагат нови места със снимка и GPS локация</li>
-            <li>Админ панел — одобрение, снимки, дрон видео и автори</li>
-            <li>Дрон видеа с кредит и линк към канала на пилота</li>
-            <li>Отделна SEO страница за всяко място, на български и английски</li>
-            <li>Защита на ниво база данни (Supabase RLS)</li>
+            <li data-i18n="t136">Интерактивна карта с филтри, търсене и навигация до всяко място</li>
+            <li data-i18n="t137">Гражданите предлагат нови места със снимка и GPS локация</li>
+            <li data-i18n="t138">Админ панел — одобрение, снимки, дрон видео и автори</li>
+            <li data-i18n="t139">Дрон видеа с кредит и линк към канала на пилота</li>
+            <li data-i18n="t140">Отделна SEO страница за всяко място, на български и английски</li>
+            <li data-i18n="t141">Защита на ниво база данни (Supabase RLS)</li>
           </ul>
-          <a class="btn btn-secondary btn-block" href="https://krumovgrad-place-to-be.vercel.app/" target="_blank" rel="noopener">Виж сайта →</a>
+          <a class="btn btn-secondary btn-block" href="https://krumovgrad-place-to-be.vercel.app/" target="_blank" rel="noopener" data-i18n="t124">Виж сайта →</a>
         </article>
 
         <article class="project-card project-card-wide reveal" style="--delay:240ms">
-          <span class="pkg-tag pkg-tag-sage">Личен проект</span>
-          <h3>Работилницата на Радо</h3>
-          <p class="project-kind">Програми за Windows · C#/.NET и PowerShell</p>
-          <p class="pkg-body">Безплатни програми за Windows с отворен код и сайт, от който се свалят. Направени с AI и тествани от мен, с автоматично издаване на версии.</p>
+          <span class="pkg-tag pkg-tag-sage" data-i18n="t133">Личен проект</span>
+          <h3 data-i18n="t142">Работилницата на Радо</h3>
+          <p class="project-kind" data-i18n="t143">Програми за Windows · C#/.NET и PowerShell</p>
+          <p class="pkg-body" data-i18n="t144">Безплатни програми за Windows с отворен код и сайт, от който се свалят. Направени с AI и тествани от мен, с автоматично издаване на версии.</p>
           <ul class="pkg-list">
-            <li>Desktop Organizer — подрежда десктопа в папки по вид на файла</li>
-            <li>Disk Cleanup — чисти временни файлове и кеш</li>
-            <li>Install Helper — програми, принтери и драйвери за офис компютри</li>
-            <li>Windows инсталатори на български (Inno Setup)</li>
-            <li>GitHub Actions — таг → build → инсталатор → Release, без ръчна работа</li>
-            <li>Автоматична проверка на кода и SHA-256 хеш за всяка версия</li>
+            <li data-i18n="t145">Desktop Organizer — подрежда десктопа в папки по вид на файла</li>
+            <li data-i18n="t146">Disk Cleanup — чисти временни файлове и кеш</li>
+            <li data-i18n="t147">Install Helper — програми, принтери и драйвери за офис компютри</li>
+            <li data-i18n="t148">Windows инсталатори на български (Inno Setup)</li>
+            <li data-i18n="t149">GitHub Actions — таг → build → инсталатор → Release, без ръчна работа</li>
+            <li data-i18n="t150">Автоматична проверка на кода и SHA-256 хеш за всяка версия</li>
           </ul>
           <div class="project-actions">
-            <a class="btn btn-secondary btn-block" href="https://rado-workshop.vercel.app/" target="_blank" rel="noopener">Виж сайта →</a>
-            <a class="btn btn-secondary btn-block" href="https://github.com/waitingboy-collab?tab=repositories" target="_blank" rel="noopener">Кодът в GitHub →</a>
+            <a class="btn btn-secondary btn-block" href="https://rado-workshop.vercel.app/" target="_blank" rel="noopener" data-i18n="t124">Виж сайта →</a>
+            <a class="btn btn-secondary btn-block" href="https://github.com/waitingboy-collab?tab=repositories" target="_blank" rel="noopener" data-i18n="t151">Кодът в GitHub →</a>
           </div>
         </article>
       </div>
@@ -413,16 +415,16 @@
     <div class="wrap">
       <div class="contact-box reveal">
         <div class="contact-copy">
-          <h2>Готов/а за дигитално меню?</h2>
-          <p>Пиши ми и ще уговорим кратък разговор за нуждите на заведението ти. Консултацията е безплатна, отговарям до 24 часа.</p>
-          <a class="btn btn-primary" href="mailto:waitingboy@gmail.com?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%82%D0%B2%D0%B0%D0%BD%D0%B5%20%D0%B7%D0%B0%20%D0%B4%D0%B8%D0%B3%D0%B8%D1%82%D0%B0%D0%BB%D0%BD%D0%BE%20%D0%BC%D0%B5%D0%BD%D1%8E">Изпрати запитване →</a>
+          <h2 data-i18n="t152">Готов/а за дигитално меню?</h2>
+          <p data-i18n="t153">Пиши ми и ще уговорим кратък разговор за нуждите на заведението ти. Консултацията е безплатна, отговарям до 24 часа.</p>
+          <a class="btn btn-primary" href="mailto:waitingboy@gmail.com?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%82%D0%B2%D0%B0%D0%BD%D0%B5%20%D0%B7%D0%B0%20%D0%B4%D0%B8%D0%B3%D0%B8%D1%82%D0%B0%D0%BB%D0%BD%D0%BE%20%D0%BC%D0%B5%D0%BD%D1%8E" data-i18n="t154">Изпрати запитване →</a>
         </div>
         <div class="contact-card">
-          <div class="contact-row"><span>Имейл</span><span>waitingboy@gmail.com</span></div>
-          <div class="contact-row"><span>Живо демо</span><span>digital-menu-nu-two.vercel.app</span></div>
-          <div class="contact-row"><span>Демо с поръчки</span><span>digital-menu-orders.vercel.app</span></div>
-          <div class="contact-row"><span>Отговор</span><span>до 24 часа</span></div>
-          <div class="contact-row"><span>Консултация</span><span>безплатна</span></div>
+          <div class="contact-row"><span data-i18n="t155">Имейл</span><span>waitingboy@gmail.com</span></div>
+          <div class="contact-row"><span data-i18n="t156">Живо демо</span><span>digital-menu-nu-two.vercel.app</span></div>
+          <div class="contact-row"><span data-i18n="t112">Демо с поръчки</span><span>digital-menu-orders.vercel.app</span></div>
+          <div class="contact-row"><span data-i18n="t157">Отговор</span><span data-i18n="t158">до 24 часа</span></div>
+          <div class="contact-row"><span data-i18n="t159">Консултация</span><span data-i18n="t160">безплатна</span></div>
         </div>
       </div>
     </div>
@@ -431,15 +433,16 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">© 2026 Радослав Чакъров · Дигитални решения за барове и ресторанти</div>
+  <div class="wrap" data-i18n="t161">© 2026 Радослав Чакъров · Дигитални решения за барове и ресторанти</div>
 </footer>
 
 <!-- ===== Sticky mobile CTA ===== -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="#demo" class="sticky-btn sticky-btn-ghost">Демо</a>
-  <a href="mailto:waitingboy@gmail.com" class="sticky-btn sticky-btn-primary">Запитване</a>
+  <a href="#demo" class="sticky-btn sticky-btn-ghost" data-i18n="t4">Демо</a>
+  <a href="mailto:waitingboy@gmail.com" class="sticky-btn sticky-btn-primary" data-i18n="t162">Запитване</a>
 </div>
 
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
