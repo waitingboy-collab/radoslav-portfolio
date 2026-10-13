@@ -178,6 +178,20 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
 }
 .nav-desktop .nav-cta:hover{ background: var(--accent-700); transform: translateY(-1px); }
 
+.lang-toggle{
+  flex: none;
+  height: 40px; min-width: 48px; padding: 0 14px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font: 700 13.5px/1 var(--font-body);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+.lang-toggle:hover{ border-color: var(--accent); color: var(--accent-700); }
+
 .burger{
   width: 46px; height: 46px; flex: none;
   display: grid; place-content: center; gap: 5px;

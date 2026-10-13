@@ -54,12 +54,42 @@
     ]
   };
 
+  const MENU_EN = {
+    drinks: [
+      { name: "Aperol Spritz", desc: "Aperol, prosecco, soda water", price: "4.90 €" },
+      { name: "Craft IPA beer", desc: "Local brewery, 0.4 l", price: "3.20 €" },
+      { name: "Mojito", desc: "White rum, mint, lime", price: "4.50 €" },
+      { name: "Homemade lemonade", desc: "Alcohol-free · seasonal", price: "2.50 €" }
+    ],
+    starters: [
+      { name: "Hummus & tabbouleh", desc: "With grilled flatbread", price: "4.50 €" },
+      { name: "Calamari", desc: "Fried, with lemon", price: "5.90 €" },
+      { name: "Crostini", desc: "Tomato, basil, olive oil", price: "3.90 €" },
+      { name: "Buffalo wings", desc: "6 pcs, blue cheese sauce", price: "5.50 €" }
+    ],
+    mains: [
+      { name: "Grilled chicken", desc: "With roast potatoes and sauce", price: "8.90 €" },
+      { name: "Classic burger", desc: "Beef, cheddar, bacon", price: "6.90 €" },
+      { name: "Pasta carbonara", desc: "Guanciale, pecorino, egg", price: "6.90 €" },
+      { name: "Striploin steak", desc: "250 g, green sauce, vegetables", price: "13.90 €" }
+    ],
+    desserts: [
+      { name: "Tiramisu", desc: "Homemade", price: "3.90 €" },
+      { name: "Cheesecake", desc: "With forest berries", price: "3.70 €" },
+      { name: "Chocolate fondant", desc: "Molten centre, ice cream", price: "4.20 €" },
+      { name: "Crème brûlée", desc: "Madagascar vanilla", price: "3.90 €" }
+    ]
+  };
+
   const tabs = document.querySelectorAll(".demo-tab");
   const itemsWrap = document.getElementById("demoItems");
+  let currentCat = "drinks";
 
   function renderMenu(cat) {
     if (!itemsWrap) return;
-    const items = MENU[cat] || [];
+    currentCat = cat;
+    const source = document.documentElement.lang === "en" ? MENU_EN : MENU;
+    const items = source[cat] || [];
     itemsWrap.innerHTML = items
       .map(
         (i, idx) => `
@@ -87,6 +117,7 @@
   });
 
   renderMenu("drinks");
+  document.addEventListener("langchange", () => renderMenu(currentCat));
 
   /* ---------- Scroll reveal ---------- */
   const revealEls = document.querySelectorAll(".reveal");
