@@ -187,4 +187,22 @@
     );
     sections.forEach((s) => io3.observe(s));
   }
+
+  /* ---------- 3D наклон на телефона (WebGL вариант) ---------- */
+  const phone = document.querySelector(".phone");
+  if (phone && matchMedia("(hover: hover) and (pointer: fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let pending = false, ex = 0, ey = 0;
+    addEventListener("pointermove", (e) => {
+      ex = e.clientX; ey = e.clientY;
+      if (pending) return; pending = true;
+      requestAnimationFrame(() => {
+        pending = false;
+        const r = phone.getBoundingClientRect();
+        const dx = (ex - (r.left + r.width / 2)) / innerWidth;
+        const dy = (ey - (r.top + r.height / 2)) / innerHeight;
+        phone.style.setProperty("--ry", (dx * 18).toFixed(2) + "deg");
+        phone.style.setProperty("--rx", (-dy * 14).toFixed(2) + "deg");
+      });
+    }, { passive: true });
+  }
 })();

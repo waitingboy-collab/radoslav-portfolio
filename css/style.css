@@ -679,3 +679,31 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
   .reveal{ opacity: 1; transform: none; transition: none; }
   .phone, .qr-scan, .demo-item{ animation: none !important; transition: none !important; }
 }
+
+/* ==========================================================================
+   WebGL вариант
+   ========================================================================== */
+#gl-bg{
+  position: fixed; inset: 0;
+  width: 100%; height: 100vh; height: 100lvh;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+}
+html.webgl .blob{ display: none; }
+html.webgl .section-alt{ background: color-mix(in srgb, var(--surface-2) 62%, transparent); }
+html.webgl .site-header{ background: color-mix(in srgb, var(--bg) 72%, transparent); }
+html.webgl .pkg-card,
+html.webgl .project-card,
+html.webgl .demo-panel{ background: color-mix(in srgb, var(--surface) 92%, transparent); }
+html[lang="en"] .pkg-card-featured::before{ content: "Most popular"; }
+
+/* телефонът леко следва мишката (само с мишка) */
+@media (hover: hover) and (pointer: fine){
+  html.webgl .hero-visual{ perspective: 900px; }
+  html.webgl .phone{ transform: rotateX(var(--rx, 4deg)) rotateY(var(--ry, -8deg)) rotate(-1.5deg); transition: transform .5s var(--ease); }
+  html.webgl .phone:hover{ transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce){
+  html.webgl .phone{ transform: rotate(-1.5deg) !important; }
+}
