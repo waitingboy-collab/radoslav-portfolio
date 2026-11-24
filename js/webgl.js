@@ -1,6 +1,7 @@
 /* ==========================================================================
    WebGL фон: топли „течни“ петна (теракота, салвия, пясък) с фини
    топографски линии. Следват мишката/пръста и се движат с превъртането.
+   Под показалеца фонът изпъква като леща, а светлината идва от него (релеф).
    Ако браузърът няма WebGL, остават старите CSS петна.
    ========================================================================== */
 (() => {
@@ -45,7 +46,11 @@
 
   void main(){
     float s = min(uRes.x, uRes.y);
-    vec2 p = (gl_FragCoord.xy - .5*uRes) / s;
+    vec2 p0 = (gl_FragCoord.xy - .5*uRes) / s;
+    // изпъкване: под показалеца всичко се издува като леща
+    vec2 d0 = p0 - uMouse;
+    float bump = exp(-dot(d0,d0) / .055) * (.45 + .55*uHover);
+    vec2 p = uMouse + d0 * (1. - .38*bump);
     float hw = .5 * uRes.x / s;           // половин ширина в тези единици
     float t = uTime * .055;
     vec2 q = p; q.y -= uScroll;           // петната „лежат“ на страницата
@@ -88,6 +93,17 @@
     line *= smoothstep(.06, .35, F) * (1. - smoothstep(1.4, 2.2, F));
     col = mix(col, RUST, line * .10);
 
+    // релеф: петната са възглавнички, куполът под показалеца изпъква, светлината идва от показалеца
+    #ifdef HAS_D
+      float Hh = F*.5 + bump*1.4;
+      float K = s * .09;
+      vec3 n = normalize(vec3(-dFdx(Hh)*K, -dFdy(Hh)*K, 1.));
+      vec3 L = normalize(vec3(uMouse - p0, .6));
+      col += (dot(n, L) - L.z) * .22;
+      vec3 hv = normalize(L + vec3(0., 0., 1.));
+      col += max(pow(max(dot(n, hv), 0.), 28.) - pow(hv.z, 28.), 0.) * .35;
+    #endif
+
     // фин хартиен шум
     col += (hash(gl_FragCoord.xy + fract(uTime)*91.) - .5) * .016;
     gl_FragColor = vec4(col, 1.);
@@ -127,6 +143,9 @@
     return { x: (cx - cv.clientWidth / 2) / s, y: -(cy - cv.clientHeight / 2) / s };
   }
   addEventListener("pointermove", (e) => { const u = toUnits(e.clientX, e.clientY); target.x = u.x; target.y = u.y; hoverTarget = 1; lastMove = performance.now(); }, { passive: true });
+  const onTouch = (e) => { const t = e.touches && e.touches[0]; if (!t) return; const u = toUnits(t.clientX, t.clientY); target.x = u.x; target.y = u.y; hoverTarget = 1; lastMove = performance.now(); };
+  addEventListener("touchstart", onTouch, { passive: true });
+  addEventListener("touchmove", onTouch, { passive: true });
   addEventListener("pointerdown", (e) => { const u = toUnits(e.clientX, e.clientY); target.x = u.x; target.y = u.y; hoverTarget = 1; lastMove = performance.now(); }, { passive: true });
   document.addEventListener("pointerleave", () => { hoverTarget = 0; });
 
