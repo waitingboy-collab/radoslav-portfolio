@@ -1,7 +1,8 @@
 /* ---------- 3D карти: изпъкват към посетителя ----------
    • С мишка: картата се накланя към показалеца, повдига се, заглавието излиза
      напред, а по нея минава отблясък.
-   • На телефон: картите леко се превъртат като барабан, докато минават през екрана.
+   • На телефон: картите леко се превъртат като барабан, докато минават през екрана,
+     и се накланят заедно с телефона (жироскоп).
    • При prefers-reduced-motion нищо не се движи. */
 (function(){
   'use strict';
@@ -72,10 +73,13 @@
     vis.forEach(function(c, i){
       var r = rects[i];
       var k = Math.max(-1, Math.min(1, ((r.top + r.height / 2) - vh / 2) / vh)); // -1 горе … 1 долу
-      set(c, -k * 5, 0, 50, 50 + k * 70);
+      var T = window.RadoTilt || { x:0, y:0 };
+      // наклонът на телефона завърта картата и мести отблясъка
+      set(c, -k * 5 - T.y * 9, T.x * 12, 50 - T.x * 60, 50 + k * 70 - T.y * 60);
     });
   }
   function queue(){ if (!pending){ pending = true; requestAnimationFrame(update); } }
   addEventListener('scroll', queue, { passive: true });
   addEventListener('resize', queue);
+  addEventListener('radotilt', queue);
 })();

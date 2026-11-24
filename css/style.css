@@ -732,3 +732,14 @@ html.fx .tilt .glare{
 }
 html.fx .tilt.tilting .glare{opacity:1}
 html.fx .tilt.rolling .glare{opacity:.3}
+
+html{--tilt-ask-bottom:84px}
+@media (min-width: 900px){ html{--tilt-ask-bottom:16px} }
+/* ===================== НАКЛОН НА ТЕЛЕФОНА ===================== */
+.tilt-ask{position:fixed;left:12px;bottom:calc(var(--tilt-ask-bottom,16px) + env(safe-area-inset-bottom));z-index:80;display:flex;align-items:stretch;
+  background:var(--ink);color:#fff;border-radius:999px;box-shadow:0 10px 30px -8px rgba(0,0,0,.35);animation:tiltAskIn .5s cubic-bezier(.2,.7,.2,1) both;max-width:calc(100vw - 24px)}
+.tilt-ask button{font:600 14px/1.2 inherit;font-family:inherit;color:inherit;background:none;border:0;cursor:pointer;min-height:44px}
+.tilt-ask .go{display:flex;align-items:center;gap:8px;padding:0 6px 0 16px;text-align:left}
+.tilt-ask .x{width:44px;font-size:20px;opacity:.7}
+.tilt-ask button:focus-visible{outline:2px solid #fff;outline-offset:-4px;border-radius:999px}
+@keyframes tiltAskIn{from{opacity:0;transform:translateY(12px)}}

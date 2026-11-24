@@ -21,7 +21,7 @@
   const vs = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
   const fs = (deriv ? "#extension GL_OES_standard_derivatives : enable\n#define HAS_D 1\n" : "") + `
   precision highp float;
-  uniform vec2 uRes; uniform float uTime; uniform vec2 uMouse; uniform float uScroll; uniform float uHover;
+  uniform vec2 uRes; uniform float uTime; uniform vec2 uMouse; uniform float uScroll; uniform float uHover; uniform vec3 uSq;
 
   const vec3 BG     = vec3(0.969, 0.937, 0.882); // #f7efe1
   const vec3 SAGE   = vec3(0.906, 0.925, 0.863); // #e7ecdc
@@ -49,7 +49,10 @@
     vec2 p0 = (gl_FragCoord.xy - .5*uRes) / s;
     // изпъкване: под показалеца всичко се издува като леща
     vec2 d0 = p0 - uMouse;
-    float bump = exp(-dot(d0,d0) / .055) * (.45 + .55*uHover);
+    // при движение (наклон на телефона) изпъкването се разтяга по посоката като капка
+    float sa = dot(d0, uSq.xy);
+    vec2 dq = uSq.xy * (sa / uSq.z) + (d0 - uSq.xy * sa) * sqrt(uSq.z);
+    float bump = exp(-dot(dq,dq) / .055) * (.45 + .55*uHover);
     vec2 p = uMouse + d0 * (1. - .38*bump);
     float hw = .5 * uRes.x / s;           // половин ширина в тези единици
     float t = uTime * .055;
@@ -122,7 +125,7 @@
   const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
   const loc = gl.getAttribLocation(pr, "p"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-  const U = {}; ["uRes","uTime","uMouse","uScroll","uHover"].forEach((n) => { U[n] = gl.getUniformLocation(pr, n); });
+  const U = {}; ["uRes","uTime","uMouse","uScroll","uHover","uSq"].forEach((n) => { U[n] = gl.getUniformLocation(pr, n); });
 
   document.documentElement.classList.add("webgl");
 
@@ -143,9 +146,38 @@
     return { x: (cx - cv.clientWidth / 2) / s, y: -(cy - cv.clientHeight / 2) / s };
   }
   addEventListener("pointermove", (e) => { const u = toUnits(e.clientX, e.clientY); target.x = u.x; target.y = u.y; hoverTarget = 1; lastMove = performance.now(); }, { passive: true });
-  const onTouch = (e) => { const t = e.touches && e.touches[0]; if (!t) return; const u = toUnits(t.clientX, t.clientY); target.x = u.x; target.y = u.y; hoverTarget = 1; lastMove = performance.now(); };
+  // топче: при наклон на телефона изпъкването се търкаля; пръстът може да го хвърли
+  const mb = { x: -1, y: -1, vx: 0, vy: 0 };
+  let touching = false, lastTouchT = 0, lastStep = 0;
+  const marbleOn = () => window.RadoTilt && window.RadoTilt.on;
+  const onTouch = (e) => {
+    const t = e.touches && e.touches[0]; if (!t) return;
+    const now = performance.now(), dt = Math.max(8, now - lastTouchT) / 1000;
+    if (touching && e.type === "touchmove") { mb.vx = (t.clientX - mb.x) / dt; mb.vy = (t.clientY - mb.y) / dt; } else { mb.vx = mb.vy = 0; }
+    lastTouchT = now; touching = true; mb.x = t.clientX; mb.y = t.clientY;
+    const u = toUnits(t.clientX, t.clientY); target.x = u.x; target.y = u.y; hoverTarget = 1; lastMove = now;
+  };
   addEventListener("touchstart", onTouch, { passive: true });
   addEventListener("touchmove", onTouch, { passive: true });
+  addEventListener("touchend", (e) => { if (!e.touches || !e.touches.length) touching = false; }, { passive: true });
+  addEventListener("touchcancel", () => { touching = false; }, { passive: true });
+  function stepMarble(now){
+    const dt = Math.min(.05, lastStep ? (now - lastStep) / 1000 : .016); lastStep = now;
+    if (!marbleOn()) return;
+    const T = window.RadoTilt, vw = cv.clientWidth, vh = cv.clientHeight, m = 50;
+    if (mb.x < 0) { mb.x = vw * .7; mb.y = vh * .4; }
+    if (!touching) {
+      mb.vx += T.x * 2400 * dt; mb.vy += T.y * 2400 * dt;
+      const fr = Math.exp(-1.7 * dt); mb.vx *= fr; mb.vy *= fr;
+      mb.x += mb.vx * dt; mb.y += mb.vy * dt;
+      if (mb.x < m) { mb.x = m; mb.vx = Math.abs(mb.vx) * .55; }
+      if (mb.x > vw - m) { mb.x = vw - m; mb.vx = -Math.abs(mb.vx) * .55; }
+      if (mb.y < m + 60) { mb.y = m + 60; mb.vy = Math.abs(mb.vy) * .55; }
+      if (mb.y > vh - m) { mb.y = vh - m; mb.vy = -Math.abs(mb.vy) * .55; }
+      const u = toUnits(mb.x, mb.y); target.x = u.x; target.y = u.y;
+    }
+    hoverTarget = 1; lastMove = now;
+  }
   addEventListener("pointerdown", (e) => { const u = toUnits(e.clientX, e.clientY); target.x = u.x; target.y = u.y; hoverTarget = 1; lastMove = performance.now(); }, { passive: true });
   document.addEventListener("pointerleave", () => { hoverTarget = 0; });
 
@@ -161,7 +193,8 @@
       // без показалец петното бавно се разхожда
       target.x = Math.sin(t * .23) * .45; target.y = Math.cos(t * .17) * .25;
     }
-    const k = reduce ? 1 : .06;
+    stepMarble(now);
+    const k = reduce ? 1 : (marbleOn() ? .35 : .06);
     cur.x += (target.x - cur.x) * k; cur.y += (target.y - cur.y) * k;
     hover += (hoverTarget - hover) * .05;
     // плавен паралакс: петната догонват скрола, вместо да се синхронизират кадър по кадър
@@ -172,6 +205,8 @@
     gl.uniform2f(U.uMouse, cur.x, cur.y);
     gl.uniform1f(U.uScroll, sy);
     gl.uniform1f(U.uHover, hover);
+    const sp = Math.hypot(mb.vx, mb.vy), st = marbleOn() ? 1 + Math.min(sp / 1600, .45) : 1;
+    gl.uniform3f(U.uSq, sp > 1 ? mb.vx / sp : 1, sp > 1 ? -mb.vy / sp : 0, st);   // y нагоре в шейдъра
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     if (running && !reduce) raf = requestAnimationFrame(frame);
   }
