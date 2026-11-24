@@ -35,7 +35,7 @@
     vec2 i = floor(p), f = fract(p); vec2 u = f*f*(3.-2.*f);
     return mix(mix(hash(i), hash(i+vec2(1.,0.)), u.x), mix(hash(i+vec2(0.,1.)), hash(i+vec2(1.,1.)), u.x), u.y);
   }
-  float fbm(vec2 p){ float v = 0., a = .5; for (int i = 0; i < 4; i++){ v += a*noise(p); p = p*2.03 + 17.1; a *= .5; } return v; }
+  float fbm(vec2 p){ float v = 0., a = .5; for (int i = 0; i < 3; i++){ v += a*noise(p); p = p*2.03 + 17.1; a *= .5; } return v; }
 
   // меко петно, повтарящо се вертикално (период P), за да има петна по цялата страница
   float blob(vec2 q, vec2 c, float r, float P){
@@ -112,7 +112,7 @@
 
   let W = 0, H = 0, scale = 1;
   function resize(){
-    scale = Math.min(window.devicePixelRatio || 1, 1.5) * 0.75;   // меките градиенти не искат пълна резолюция
+    scale = Math.min(window.devicePixelRatio || 1, 1.5) * 0.6;   // меките градиенти не искат пълна резолюция
     W = Math.max(1, Math.round(cv.clientWidth * scale));
     H = Math.max(1, Math.round(cv.clientHeight * scale));
     if (cv.width !== W || cv.height !== H) { cv.width = W; cv.height = H; gl.viewport(0, 0, W, H); }
@@ -130,9 +130,12 @@
   addEventListener("pointerdown", (e) => { const u = toUnits(e.clientX, e.clientY); target.x = u.x; target.y = u.y; hoverTarget = 1; lastMove = performance.now(); }, { passive: true });
   document.addEventListener("pointerleave", () => { hoverTarget = 0; });
 
-  let running = true, t0 = performance.now(), raf = 0;
+  let running = true, t0 = performance.now(), raf = 0, lastDraw = -1e9, sy = 0;
+  const FRAME = 1000 / 30; // 30 кадъра стигат за бавните петна и оставят време за скрола
   function frame(now){
     raf = 0;
+    if (!reduce && now - lastDraw < FRAME - 2) { if (running) raf = requestAnimationFrame(frame); return; }
+    lastDraw = now;
     const t = reduce ? 12 : (now - t0) / 1000;
     if (!reduce && now - lastMove > 2500) {
       hoverTarget = 0;
@@ -142,7 +145,9 @@
     const k = reduce ? 1 : .06;
     cur.x += (target.x - cur.x) * k; cur.y += (target.y - cur.y) * k;
     hover += (hoverTarget - hover) * .05;
-    const sy = window.scrollY / Math.min(cv.clientWidth, cv.clientHeight) * .45; // паралакс
+    // плавен паралакс: петната догонват скрола, вместо да се синхронизират кадър по кадър
+    const syT = window.scrollY / Math.min(cv.clientWidth, cv.clientHeight) * .35;
+    sy += (syT - sy) * (reduce ? 1 : .08);
     gl.uniform2f(U.uRes, W, H);
     gl.uniform1f(U.uTime, t);
     gl.uniform2f(U.uMouse, cur.x, cur.y);
